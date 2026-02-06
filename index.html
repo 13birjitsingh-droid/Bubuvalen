@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>For Rhythm ❤️</title>
+  <link rel="stylesheet" href="style.css">
+  <div class="sparkle-container"></div>
+</head>
+<body>
+
+<div class="sparkle-container"></div>
+<canvas id="fireworksCanvas"></canvas>
+
+  <!-- SCREEN 1 : START -->
+  <section class="screen active" id="start">
+    <h1>Hey Rhythm ji ❤️</h1>
+    <p>I made something special for you…</p>
+    <button onclick="startSite()">Start 💖</button>
+  </section>
+
+  <!-- SCREEN 2 : QUESTION -->
+  <section class="screen" id="question">
+    <img src="couple.jpeg" class="main-img">
+    <h2>Will you be my Valentine, Rhythm ji? 💌</h2>
+
+    <div class="buttons">
+      <button id="yesBtn" onclick="yesClicked()">Yes 💕</button>
+      <button id="noBtn" onmouseover="moveNo()">No 😜</button>
+    </div>
+  </section>
+
+  <!-- SCREEN 3 : CELEBRATION -->
+  <section class="screen" id="celebrate">
+    <h1>YAYYYY 💖✨</h1>
+    <p>You just made my heart smile in ways words can’t explain 💕
+       From the moment you smiled at me, something inside me felt like home.  
+       You turn my ordinary days into something magical and calm my heart  
+       just by being you 💕</p>
+    <button onclick="goOptions()">I’ve got something for you 👇</button>
+  </section>
+
+  <!-- SCREEN 4 : OPTIONS -->
+  <section class="screen" id="options">
+    <h2>Choose one 💘</h2>
+    <button onclick="openGallery()">Our Gallery 📸</button>
+    <button onclick="openSecret()">Secret 🤫</button>
+    <button onclick="openQuiz()">Quiz 💭</button>
+    <button onclick="showScreen('finalBtn')">Final Button 💖</button>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="screen" id="gallery">
+    <h2>Our Moments ❤️</h2>
+    <div class="gallery">
+  <div>
+    <img src="pic1.jpeg">
+    <p>school vala pehla pehla pyaar</p>
+  </div>
+
+  <div>
+    <img src="pic2.jpeg">
+    <p>kissing you feels magical</p>
+  </div>
+
+  <div>
+    <img src="pic3.jpeg">
+    <p>the day that changed everything</p>
+  </div>
+
+  <div>
+    <img src="pic4.jpeg">
+    <p>us ❤️</p>
+  </div>
+</div>
+    <button onclick="goOptions()">Back 💖</button>
+  </section>
+
+  <!-- SECRET -->
+  <div class="screen" id="secret">
+
+  <h2>Our Secret Moment ❤️</h2>
+
+  <video id="dancevideo" controls playsinline>
+    <source src="dancevideo.mp4" type="video/mp4">
+  </video>
+
+  <br><br>
+
+  <button onclick="showScreen('menu')">Back</button>
+
+</div>
+
+  <!-- QUIZ -->
+  <section class="screen" id="quiz">
+    <h2 id="quizQ">Who loves more? 💕</h2>
+
+<div class="buttons">
+  <button onclick="checkAnswer(false)">Me</button>
+  <button onclick="checkAnswer(false)">You</button>
+  <button onclick="checkAnswer(true)">Both 💖</button>
+</div>
+
+<p id="quizMsg"></p>
+
+<button onclick="goOptions()">Back 💖</button>
+
+div class="gifs">
+  <img src="cute1.gif">
+  <img src="cute2.gif">
+  <img src="cute3.gif">
+</div>
+  </section>
+
+  <audio id="song1" src="song1.mp3"></audio>
+  <audio id="song2" src="song2.mp3"></audio>
+
+<!-- FINAL BUTTON SCREEN -->
+<div class="screen" id="finalBtn" style="display:none;">
+
+  <h2>One last surprise 💖</h2>
+
+  <button onclick="goFinal()">Final Button 💕</button>
+
+</div>
+
+
+<!-- FINAL MESSAGE SCREEN -->
+<div class="screen" id="final" style="display:none;">
+
+  <h1>Forever Us ❤️</h1>
+
+  <p>
+  From the day you entered my life, everything started feeling softer,
+  warmer and happier. You turned my ordinary moments into memories
+  I never want to lose. Your smile feels like peace and your presence
+  feels like home to my heart. I don't promise a perfect life, but I
+  promise a life where I will always choose you, stand beside you,
+  and love you a little more every single day.
+
+  This is not an end because our love is forever ❤️  
+  Yeh thi ek choti si website meri taraf se meri bube ke liye.
+  </p>
+
+
+</div>
+<canvas id="fireworksCanvas"></canvas>
+  <script src="script.js"></script>
+</body>
+</html>
