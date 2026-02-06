@@ -1,0 +1,883 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/><DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>For Rhythm ❤️</title>
+  <link rel="stylesheet" href="style.css">
+  <div class="sparkle-container"></div>
+</head>
+<body>
+
+<div class="sparkle-container"></div>
+<canvas id="fireworksCanvas"></canvas>
+
+  <!-- SCREEN 1 : START -->
+  <section class="screen active" id="start">
+    <h1>Hey Rhythm ji ❤️</h1>
+    <p>I made something special for you…</p>
+    <button onclick="startSite()">Start 💖</button>
+  </section>
+
+  <!-- SCREEN 2 : QUESTION -->
+  <section class="screen" id="question">
+    <img src="couple.jpeg" class="main-img">
+    <h2>Will you be my Valentine, Rhythm ji? 💌</h2>
+
+    <div class="buttons">
+      <button id="yesBtn" onclick="yesClicked()">Yes 💕</button>
+      <button id="noBtn" onmouseover="moveNo()">No 😜</button>
+    </div>
+  </section>
+
+  <!-- SCREEN 3 : CELEBRATION -->
+  <section class="screen" id="celebrate">
+    <h1>YAYYYY 💖✨</h1>
+    <p>You just made my heart smile in ways words can't explain 💕
+       From the moment you smiled at me, something inside me felt like home.  
+       You turn my ordinary days into something magical and calm my heart  
+       just by being you 💕</p>
+    <button onclick="goOptions()">I've got something for you 👇</button>
+  </section>
+
+  <!-- SCREEN 4 : OPTIONS -->
+  <section class="screen" id="options">
+    <h2>Choose one 💘</h2>
+    <button onclick="openGallery()">Our Gallery 📸</button>
+    <button onclick="openSecret()">Secret 🤫</button>
+    <button onclick="openQuiz()">Quiz 💭</button>
+    <button onclick="showScreen('finalBtn')">Final Button 💖</button>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="screen" id="gallery">
+    <h2>Our Moments ❤️</h2>
+    <div class="gallery">
+  <div>
+    <img src="pic1.jpeg">
+    <p>school vala pehla pehla pyaar</p>
+  </div>
+
+  <div>
+    <img src="pic2.jpeg">
+    <p>kissing you feels magical</p>
+  </div>
+
+  <div>
+    <img src="pic3.jpeg">
+    <p>the day that changed everything</p>
+  </div>
+
+  <div>
+    <img src="pic4.jpeg">
+    <p>us ❤️</p>
+  </div>
+</div>
+    <button onclick="goOptions()">Back 💖</button>
+  </section>
+
+  <!-- SECRET -->
+  <div class="screen" id="secret">
+
+  <h2>Our Secret Moment ❤️</h2>
+
+  <video id="dancevideo" controls playsinline>
+    <source src="dancevideo.mp4" type="video/mp4">
+  </video>
+
+  <br><br>
+
+  <button onclick="showScreen('menu')">Back</button>
+
+</div>
+
+  <!-- QUIZ -->
+  <section class="screen" id="quiz">
+    <h2 id="quizQ">Who loves more? 💕</h2>
+
+<div class="buttons">
+  <button onclick="checkAnswer(false)">Me</button>
+  <button onclick="checkAnswer(false)">You</button>
+  <button onclick="checkAnswer(true)">Both 💖</button>
+</div>
+
+<p id="quizMsg"></p>
+
+<button onclick="goOptions()">Back 💖</button>
+
+div class="gifs">
+  <img src="cute1.gif">
+  <img src="cute2.gif">
+  <img src="cute3.gif">
+</div>
+  </section>
+
+  <audio id="song1" src="song1.mp3"></audio>
+  <audio id="song2" src="song2.mp3"></audio>
+
+<!-- FINAL BUTTON SCREEN -->
+<div class="screen" id="finalBtn" style="display:none;">
+
+  <h2>One last surprise 💖</h2>
+
+  <button onclick="goFinal()">Final Button 💕</button>
+
+</div>
+
+
+<!-- FINAL MESSAGE SCREEN -->
+<div class="screen" id="final" style="display:none;">
+
+  <h1>Forever Us ❤️</h1>
+
+  <p>
+  From the day you entered my life, everything started feeling softer,
+  warmer and happier. You turned my ordinary moments into memories
+  I never want to lose. Your smile feels like peace and your presence
+  feels like home to my heart. I don't promise a perfect life, but I
+  promise a life where I will always choose you, stand beside you,
+  and love you a little more every single day.
+
+  This is not an end because our love is forever ❤️  
+  Yeh thi ek choti si website meri taraf se meri bube ke liye.
+  </p>
+
+
+</div>
+<canvas id="fireworksCanvas"></canvas>
+  <script src="script.js"></script>
+</body>
+</html><style>{
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: linear-gradient(to bottom, #ffb6c1, #ffc0cb);
+  text-align: center;
+  overflow-y: auto;
+}
+
+.screen {
+  display: none;
+  min-height: 100vh;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.screen.active {
+  display: block;
+}
+
+button {
+  padding: 12px 22px;
+  font-size: 16px;
+  border: none;
+  border-radius: 20px;
+  background: #ff4d6d;
+  color: white;
+  cursor: pointer;
+  margin: 10px;
+}
+
+.main-img {
+  width: 220px;
+  border-radius: 20px;
+  margin: 15px 0;
+}
+
+.buttons {
+  position: relative;
+  height: 120px;
+}
+
+#noBtn {
+  position: absolute;
+}
+
+.gallery img {
+  width: 140px;
+  border-radius: 15px;
+  margin: 8px;
+}
+
+video {
+  width: 90%;
+  max-width: 400px;
+  border-radius: 20px;
+}
+
+#question {
+  justify-content: flex-start;
+  padding-top: 30px;
+}
+
+#question h2 {
+  margin: 10px 0;
+  font-size: 20px;
+}
+
+.main-img {
+  width: 200px;
+  margin-bottom: 10px;
+}
+
+.buttons {
+  margin-top: 10px;
+  height: 80px;
+}
+
+#yesBtn, #noBtn {
+  font-size: 16px;
+  padding: 10px 20px;
+}
+
+.gallery div {
+  margin-bottom: 12px;
+}
+
+.gallery p {
+  font-size: 14px;
+  color: white;
+}
+
+#quizMsg {
+  margin-top: 10px;
+  font-size: 18px;
+  color: white;
+}
+
+.gifs img {
+  width: 110px;
+  margin: 6px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+#finalBtn {
+  text-align: center;
+}
+
+#finalBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+#start h1 {
+  font-size: 36px;
+}
+
+#start p {
+  font-size: 20px;
+}
+
+#question {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#question h2 {
+  margin-top: 20px;
+}
+
+.main-img {
+  margin: auto;
+}
+
+.buttons {
+  margin-bottom: 40px;
+}
+
+#celebrate p {
+  font-size: 20px;
+  max-width: 300px;
+}
+
+#celebrate button {
+  font-size: 14px;
+  padding: 8px 18px;
+}
+
+#gallery button {
+  font-size: 14px;
+  padding: 7px 16px;
+}
+
+#secret button {
+  font-size: 14px;
+  padding: 7px 16px;
+}
+
+#final{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+}
+
+#final{
+  display:none;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  min-height:100vh;
+}
+
+button{
+  padding: 12px 22px;
+  font-size: 18px;
+  border-radius: 12px;
+  max-width: 220px;
+}
+
+.screen{
+  padding: 20px;
+  justify-content: center;
+}
+
+h1{
+  font-size: 32px;
+}
+
+h2{
+  font-size: 24px;
+}
+
+p{
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.main-img{
+  width: 80%;
+  max-width: 320px;
+  margin: 15px auto;
+}
+
+.gallery img{
+  width: 90%;
+  max-width: 260px;
+  margin: 10px;
+}
+
+.gallery p{
+  font-size: 16px;
+}
+
+@media (max-width: 480px){
+
+  h1{ font-size: 26px; }
+
+  h2{ font-size: 20px; }
+
+  p{ font-size: 16px; }
+
+  button{
+    font-size: 16px;
+    padding: 10px 18px;
+  }
+
+}
+
+gifs{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.gifs img{
+  width: 150px;
+  opacity: 0.9;
+}
+
+.quiz-container{
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.screen{
+  min-height: 100vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 20px;
+}
+
+.sparkle-container{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.sparkle{
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: white;
+  border-radius: 50%;
+  animation: sparkleAnim 2s linear infinite;
+  opacity: 0.8;
+}
+
+@keyframes sparkleAnim{
+  0%{
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  100%{
+    transform: translateY(100vh) scale(0);
+    opacity: 0;
+  }
+}
+
+#fireworksCanvas{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  display: none;
+  z-index: 1;
+}
+
+/* Sparkles */
+.sparkle-container{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.sparkle{
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: white;
+  border-radius: 50%;
+  animation: sparkleAnim 3s linear infinite;
+}
+
+@keyframes sparkleAnim{
+  0%{
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100%{
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
+
+
+/* Fireworks */
+#fireworksCanvas{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  display: none;
+  z-index: 2;
+}</style><script>let noCount = 0;
+
+function showScreen(id) {
+
+  let screens = document.querySelectorAll(".screen");
+
+  screens.forEach(screen => {
+    screen.style.display = "none";
+  });
+
+  let target = document.getElementById(id);
+
+  if(target){
+    target.style.display = "flex";
+  }
+
+  window.scrollTo(0,0);
+}
+
+function startSite(){
+
+  stopAllSongs();   // add this line
+
+  document.getElementById("start").style.display="none";
+  document.getElementById("question").style.display="flex";
+
+  document.getElementById("song1").play();
+
+}
+
+function yesClicked() {
+  showScreen('celebrate');
+}
+
+function moveNo() {
+  const noBtn = document.getElementById('noBtn');
+  noCount++;
+  if (noCount < 3) {
+    noBtn.style.left = Math.random() * 200 + 'px';
+    noBtn.style.top = Math.random() * 80 + 'px';
+  } else {
+    noBtn.innerText = "Think again 😜";
+  }
+}
+
+function goOptions() {
+  showScreen('options');
+}
+
+function openGallery() {
+  showScreen('gallery');
+}
+
+function openSecret() {
+
+  document.getElementById("song1").pause();
+
+  let vid = document.getElementById("danceVideo");
+  vid.currentTime = 0;
+  vid.pause();
+
+  showScreen("secret");
+}
+
+function openQuiz() {
+  showScreen('quiz');
+}
+
+function correct() {
+  document.getElementById('song2').play();
+  showScreen('final');
+} quizStep = 1;
+
+
+function checkAnswer(correct) {
+
+  const q = document.getElementById("quizQ");
+  const msg = document.getElementById("quizMsg");
+
+  if (!correct) {
+    msg.innerText = "Try again sweetie 😘";
+    return;
+  }
+
+  msg.innerText = "Good girl 💕✨";
+
+  setTimeout(() => {
+
+    quizStep++;
+
+    if (quizStep === 2) {
+      q.innerText = "Who is my safe place? 💞";
+      msg.innerText = "";
+      return;
+    }
+
+    if (quizStep === 3) {
+      q.innerText = "What is us? ❤️";
+      msg.innerText = "";
+      return;
+    }
+
+    if (quizStep >= 4) {
+      quizStep = 1;
+      showScreen("finalBtn");
+    }
+
+  }, 1000);
+}
+
+function showFinal() {
+  document.getElementById("song2").play();
+  showScreen("final");
+}
+
+let quizStep = 1;
+
+function checkAnswer(correct) {
+
+let q = document.getElementById("quizQ");
+let msg = document.getElementById("quizMsg");
+
+if(!correct){
+msg.innerText = "Try again sweetie 😘";
+return;
+}
+
+msg.innerText = "Good girl 💕";
+
+setTimeout(()=>{
+
+quizStep++;
+
+if(quizStep === 2){
+q.innerText = "Who is my happiness? ❤️";
+msg.innerText="";
+return;
+}
+
+if(quizStep === 3){
+q.innerText = "What are we? 💞";
+msg.innerText="";
+return;
+}
+
+if(quizStep === 4){
+quizStep = 1;
+showScreen("finalBtn");
+}
+
+},1000);
+}
+
+function goFinal(){
+
+  // Hide all screens
+  document.querySelectorAll(".screen").forEach(s=>{
+    s.style.display = "none";
+  });
+
+  // Show final page
+  document.getElementById("final").style.display = "block";
+  startFireworks();
+
+
+  // ⭐ FORCE STOP SONG 1
+  let song1 = document.getElementById("song1");
+  if(song1){
+    song1.pause();
+    song1.currentTime = 0;
+    song1.src = song1.src;   // force stop trick
+  }
+
+
+  // ⭐ PLAY SONG 2
+  let song2 = document.getElementById("song2");
+  if(song2){
+    song2.currentTime = 0;
+    song2.play();
+  }
+
+}
+
+  window.scrollTo(0,0);
+
+function goFinal(){
+
+  // Stop ALL songs first
+  stopAllSongs();
+
+  // Hide all screens
+  document.querySelectorAll(".screen").forEach(s=>{
+    s.style.display = "none";
+  });
+
+  // Show final screen
+  document.getElementById("final").style.display = "block";
+
+  // Play Song 2 only
+  let song2 = document.getElementById("song2");
+  if(song2){
+    song2.play();
+  }
+
+}
+
+function stopAllSongs(){
+
+  let songs = document.querySelectorAll("audio");
+
+  songs.forEach(song=>{
+    song.pause();
+    song.currentTime = 0;
+  });
+
+}
+
+function openSecret(){
+
+  stopAllSongs();
+
+  showScreen("secret");
+
+  let v = document.getElementById("dancevideo");
+
+  if(v){
+    v.pause();
+    v.currentTime = 0;
+  }
+
+}
+
+function createSparkles(){
+
+  const container = document.querySelector(".sparkle-container");
+
+  setInterval(()=>{
+
+    const sparkle = document.createElement("div");
+    sparkle.classList.add("sparkle");
+
+    sparkle.style.left = Math.random()*100 + "vw";
+    sparkle.style.animationDuration = (Math.random()*2+1)+"s";
+
+    container.appendChild(sparkle);
+
+    setTimeout(()=>{
+      sparkle.remove();
+    },3000);
+
+  },300);
+
+}
+
+createSparkles();
+
+function startFireworks(){
+
+  const canvas = document.getElementById("fireworksCanvas");
+  canvas.style.display = "block";
+
+  const ctx = canvas.getContext("2d");
+
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  function random(min,max){
+    return Math.random()*(max-min)+min;
+  }
+
+  function firework(){
+
+    let x = random(0,canvas.width);
+    let y = random(0,canvas.height/2);
+
+    for(let i=0;i<40;i++){
+
+      let angle = Math.random()*2*Math.PI;
+      let speed = random(2,5);
+
+      let vx = Math.cos(angle)*speed;
+      let vy = Math.sin(angle)*speed;
+
+      let px = x;
+      let py = y;
+
+      function animate(){
+
+        px += vx;
+        py += vy;
+
+        ctx.fillStyle = "pink";
+        ctx.fillRect(px,py,3,3);
+
+        requestAnimationFrame(animate);
+      }
+
+      animate();
+    }
+  }
+
+  setInterval(firework,800);
+
+}
+
+function createSparkles(){
+
+  const container = document.querySelector(".sparkle-container");
+
+  if(!container) return;
+
+  setInterval(()=>{
+
+    const s = document.createElement("div");
+    s.classList.add("sparkle");
+
+    s.style.left = Math.random()*100 + "vw";
+    s.style.animationDuration = (Math.random()*2+2)+"s";
+
+    container.appendChild(s);
+
+    setTimeout(()=>{
+      s.remove();
+    },3000);
+
+  },300);
+
+}
+
+createSparkles();
+
+function startFireworks(){
+
+  const canvas = document.getElementById("fireworksCanvas");
+  if(!canvas) return;
+
+  canvas.style.display = "block";
+
+  const ctx = canvas.getContext("2d");
+
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  function random(min,max){
+    return Math.random()*(max-min)+min;
+  }
+
+  function firework(){
+
+    let x = random(0,canvas.width);
+    let y = random(0,canvas.height/2);
+
+    for(let i=0;i<30;i++){
+
+      let angle = Math.random()*2*Math.PI;
+      let speed = random(2,5);
+
+      let vx = Math.cos(angle)*speed;
+      let vy = Math.sin(angle)*speed;
+
+      let px = x;
+      let py = y;
+
+      function animate(){
+
+        px += vx;
+        py += vy;
+
+        ctx.fillStyle = "pink";
+        ctx.fillRect(px,py,3,3);
+
+        requestAnimationFrame(animate);
+      }
+
+      animate();
+    }
+  }
+
+  setInterval(firework,800);
+}</script>
